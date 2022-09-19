@@ -1,0 +1,104 @@
+\documentclass[12pt, a4paper]{ctexart}
+\usepackage{syntonly}
+% \syntaxonly
+\usepackage{ulem} %
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage[dvipsnames]{xcolor}
+
+\begin{document}
+
+\section{Lec6:}
+
+\subsection{Def: converging sequences}
+(x$_{n}$) converges to L if given $\epsilon > 0$, there exists $N \in
+\mathbb{N}$ such that $|x_{n} - L| < \epsilon \quad \forall m \ge N$.
+
+n\subsection{Example:}
+Show that
+\[\lim_{m \rightarrow \infty} \frac{3m+2}{m + 1} = 3 \]
+using the definition of convergence.\par
+
+We need to show that given $\epsilon > 0$, $\exists N \in \mathbb{N}$
+such that $|\frac{3m + 2}{m + 1} - 3| < \epsilon, \forall n \ge N$
+
+We compute
+\[|\frac{3m + 2}{m + 1} - 3| = |\frac{3m + 2 - (3m + 3)}{m + 1}| =
+  |-\frac{1}{m - 1}| = \frac{1}{m + 1} < \frac{1}{m}  \]
+Given $\epsilon > 0$, by the archimeadia property, $\exists N \in
+\mathbb{N}, \frac{1}{N} < \epsilon$ Then, $\forall m \ge N$, we have
+\[|\frac{3m + 2}{m + 1} - 3| < \frac{1}{m} \le \frac{1}{N} < \epsilon \]
+
+\subsection{Thoerem(Uniqueness of Limits): }
+Suppose that L$_{1}, L_{2} \in \mathbb{R}$ and (x$_{n}$) is a sequence
+in $\mathbb{R}$ such that $\lim_{n \rightarrow \infty} x_{n} = L_{1}$,
+and  $\lim_{n \rightarrow \infty} x_{n} = L_{2}$. Then L$_{1} = L_{2}$\par
+
+Proof: observe that if $b \in \mathbb{R}, b \ge 0$ such that $b <
+\epsilon \forall \epsilon > 0$, then b = 0 by the Archimediam
+property. \par
+So to show that L$_{1} = L_{2}$, it suffices to prove that $|L_{1} -
+L_{2}| < \epsilon$ $\forall \epsilon > 0$.\par
+
+For $m \in \mathbb{N}$, we have
+\[|L_{1} - L_{2}| = |L_{1} - x_{n} +
+  x_{n} - L_{2}| \le |L_{1} - x_{n}| + |x_{n} - L_{2}| \tag{*}\]
+
+Let $\epsilon > 0$ be given, since $\lim_{m \rightarrow \infty}x_{n} =
+L_{1}$, then $\exists N_{1} \in \mathbb{N}$ such that \[|x_{m} - L_{1}|
+  < \epsilon/2, \forall m \ge N_{1}\].
+
+Similarly, we can show that since $\lim_{m \rightarrow \infty}x_{n} =
+L_{2}$, then $\exists N_{2} \in \mathbb{N}$ such that \[|x_{m} - L_{2}|
+  < \epsilon/2, \forall m \ge N_{2}\].
+Set $N = max\{N_{1}, N_{2}\}$, then from (*) we have \[|L_{1} - L_{2}|
+  < \epsilon/2 * 2 = \epsilon\]
+
+Since $\epsilon > 0 $ is arbitrary, it follows that \[|L_{1} - L_{2}| =
+  0 \Rightarrow L_{1} = L_{2}\]
+
+\subsection{Def 2.5: }
+We say that a sequqnce (x$_{n} \text{ in } \mathbb{R}$) is bounded if there is
+$M \in \mathbb{R}$ such that
+\[|x_{n}| \le M, \forall m \in \mathbb{N}\]
+that is, x$_{n} \in [-M, M], \forall m \in \mathbb{N}$
+
+\subsection{Theorem 2.6}
+Every convergent sequency (x$_{n}$) is bounded.
+
+Proof: We need to find $M \in \mathbb{R}$ such that $|x_{n}|\le M,
+\forall m \in \mathbb{N}$. Let $L \in \mathbb{R}$ such that $\lim_{n
+  \rightarrow \infty} x_{n} = L$. We have $\forall n \in \mathbb{N}$
+\[ |x_{n}| = |x_{n} - L + L| \le |x_{n} - L| + |L|\]
+Take $\epsilon = 1$, then there exists $N$ such that
+\[|x_{n} - L| < 1, \forall m \ge N\]
+Set \[M = Max\{1 + |L|, |x_{1}|, |x_{2}|, .. |x_{N - 1}| \}\]
+
+Then for $m < N$, we have $|x_{n}| \le M$, also, for $m \ge N$, we
+have \[|x_{n}| \le |x_{n} - L + L| < 1 + |L| \le M\]. Hence, (x$_{n}$)
+is bounded.
+
+\subsection{Example}
+Consider the sequence ($(S_{m})_{m = 1}^{\infty}$), where
+\[ S_{m} = 1  + 1/2  + 1/3 + ... + 1/m\]
+Show that (S$_{m}$) is unbounded and conclude that S$_{n}$ diverges
+
+It suffices to show that the sequence S$_{m}$ that have m =
+2$^{k}, \forall k \in \mathbb{N}$, this sequence is unbounded.
+
+We have
+\[ S_{2} = 1 + 1/2, k = 1 \]
+\[ S_{4} = 1 + 1/2 + 1/3 + 1/4 > 1 + 1/2 + 1/4 + 1/4 = 1 + 2 * 1/2, k
+  =2\]
+
+The idea is to show by induction that S$_{2^{k}} = 1 + 1/2 + ... +
+1/2^{k} > 1 + k * 1/2$
+
+    
+
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
